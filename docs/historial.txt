@@ -1,0 +1,3 @@
+- Taller 1: Creación de estructura base (index.html, style.css) y configuración inicial del repositorio.
+- Taller 2: Integración de ramas, pull requests, revisión cruzada y resolución de conflictos.
+- Fase Final: Validación semántica, documentación en README.md, creación de historial.txt y empaquetado final de la versión.
