@@ -1,6 +1,39 @@
-/* ==============================
-   RESET BÁSICO
-   ============================== */
+
+/* =========================================================
+   PROYECTO FINAL — DISEÑO PROFESIONAL
+   Paleta: crema · rosa · terracota · vino · ciruela
+   ========================================================= */
+
+
+/* =========================================================
+   VARIABLES DE DISEÑO
+   ========================================================= */
+
+:root {
+    --crema: #F3E5D0;
+    --rosa-claro: #E5B7A4;
+    --rosa: #D18476;
+    --terracota: #A75052;
+    --vino: #6F3F45;
+    --ciruela: #302631;
+
+    --blanco: #FFFFFF;
+    --texto: #382D32;
+    --texto-suave: #716369;
+
+    --borde: rgba(111, 63, 69, 0.15);
+
+    --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.15);
+    --sombra-media: 0 18px 45px rgba(0, 0, 0, 0.20);
+    --sombra-fuerte: 0 25px 60px rgba(0, 0, 0, 0.25);
+
+    --radio: 20px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
 
 * {
     margin: 0;
@@ -8,196 +41,685 @@
     box-sizing: border-box;
 }
 
-/* ==============================
-   ESTILOS GENERALES
-   ============================== */
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #222222;
+html {
+    scroll-behavior: smooth;
 }
 
-/* ==============================
-   HEADER
-   ============================== */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    /* Fondo oscuro en toda la parte inferior */
+    background: #302631;
+
+    color: var(--texto);
+    line-height: 1.7;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   ENCABEZADO / HERO
+   ========================================================= */
 
 header {
-    background-color: #1f4e79;
-    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+
     text-align: center;
-    padding: 30px 20px;
+    color: var(--blanco);
+
+    padding: 90px 25px 85px;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(229, 183, 164, 0.30),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(209, 132, 118, 0.25),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            var(--ciruela),
+            var(--vino) 55%,
+            var(--terracota)
+        );
+
+    box-shadow: var(--sombra-fuerte);
+}
+
+
+/* Decoraciones del encabezado */
+
+header::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: rgba(229, 183, 164, 0.10);
+
+    top: -150px;
+    left: -80px;
+}
+
+header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    right: -120px;
+    bottom: -220px;
 }
 
 header h1 {
-    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 700;
+
+    letter-spacing: 1px;
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.20);
 }
 
-/* ==============================
+header p {
+    position: relative;
+    z-index: 1;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #F5DDD3;
+
+    font-size: 17px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
    NAVEGACIÓN
-   ============================== */
+   ========================================================= */
 
 nav {
-    background-color: #163a5c;
-    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: rgba(48, 38, 49, 0.97);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    padding: 12px 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.20);
 }
 
 nav ul {
     list-style: none;
+
     display: flex;
+
     justify-content: center;
-    gap: 25px;
+    align-items: center;
+
+    gap: 8px;
+}
+
+nav li {
+    position: relative;
 }
 
 nav a {
-    color: #ffffff;
+    display: block;
+
+    color: #F7EDE7;
+
     text-decoration: none;
-    font-weight: bold;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 0.4px;
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: var(--blanco);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--terracota),
+            var(--rosa)
+        );
+
+    transform: translateY(-2px);
 }
 
-/* ==============================
-   CONTENIDO PRINCIPAL
-   ============================== */
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
 
 main {
-    width: 90%;
-    max-width: 1100px;
-    margin: 30px auto;
+    width: min(92%, 1120px);
+
+    margin: 60px auto;
 }
+
+
+/* =========================================================
+   SECCIONES
+   ========================================================= */
 
 section {
-    background-color: #ffffff;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 8px;
+    position: relative;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    padding: 38px;
+
+    margin-bottom: 35px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: var(--radio);
+
+    box-shadow: var(--sombra-media);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
+
+section:hover {
+    transform: translateY(-4px);
+
+    box-shadow: var(--sombra-fuerte);
+}
+
+
+/* Línea decorativa superior */
+
+section::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--rosa),
+            var(--terracota),
+            var(--vino)
+        );
+}
+
+
+/* =========================================================
+   TÍTULOS
+   ========================================================= */
 
 section h2 {
-    margin-bottom: 15px;
+    color: var(--ciruela);
+
+    font-size: 28px;
+    font-weight: 700;
+
+    margin-bottom: 16px;
+
+    line-height: 1.2;
 }
 
-/* ==============================
+section h2::after {
+    content: "";
+
+    display: block;
+
+    width: 55px;
+    height: 4px;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--rosa),
+            var(--terracota)
+        );
+}
+
+section p {
+    color: var(--texto-suave);
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   ACERCA DE
+   ========================================================= */
+
+#acerca {
+    width: min(92%, 1120px);
+
+    margin: 55px auto 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(245, 225, 215, 0.96)
+        );
+}
+
+#acerca p {
+    max-width: 950px;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
    TABLA
-   ============================== */
+   ========================================================= */
 
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #ffffff;
-}
 
-th,
-td {
-    border: 1px solid #cccccc;
-    padding: 12px;
-    text-align: left;
+    margin-top: 25px;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    overflow: hidden;
+
+    background: var(--blanco);
+
+    border:
+        1px solid var(--borde);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 18px rgba(48, 38, 49, 0.10);
 }
 
 th {
-    background-color: #1f4e79;
-    color: #ffffff;
+    padding: 17px 16px;
+
+    text-align: left;
+
+    color: var(--blanco);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--ciruela),
+            var(--vino)
+        );
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+}
+
+td {
+    padding: 15px 16px;
+
+    color: var(--texto);
+
+    border-bottom:
+        1px solid rgba(111, 63, 69, 0.10);
+
+    font-size: 14px;
+
+    transition:
+        background 0.2s ease;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f4f4f4;
+    background: #FBF4EE;
 }
 
 tbody tr:hover {
-    background-color: #e8eef4;
+    background: #F1DCD3;
 }
 
-/*FORMULARIO */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+#contacto {
+    width: min(92%, 1120px);
+
+    margin: 0 auto 60px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(246, 231, 223, 0.96)
+        );
+}
 
 form {
-    max-width: 700px;
-    margin: 20px auto;
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    max-width: 850px;
+
+    margin: 25px auto 0;
 }
 
 label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
+    color: var(--vino);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-top: 8px;
 }
 
 input,
 textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
+
+    padding: 15px 17px;
+
+    border:
+        1.5px solid rgba(111, 63, 69, 0.18);
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.90);
+
+    color: var(--texto);
+
     font-family: inherit;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        transform 0.2s ease;
+}
+
+input:hover,
+textarea:hover {
+    background: var(--blanco);
+
+    border-color:
+        rgba(161, 80, 82, 0.35);
+}
+
+input:focus,
+textarea:focus {
+    background: var(--blanco);
+
+    border-color: var(--rosa);
+
+    box-shadow:
+        0 0 0 4px rgba(209, 132, 118, 0.14),
+        0 8px 20px rgba(48, 38, 49, 0.10);
+
+    transform: translateY(-1px);
 }
 
 textarea {
-    min-height: 120px;
+    min-height: 145px;
+
     resize: vertical;
 }
 
+
+/* =========================================================
+   BOTÓN
+   ========================================================= */
+
 button {
-    background-color: #1f4e79;
-    color: #ffffff;
+    align-self: flex-start;
+
+    margin-top: 18px;
+
+    padding: 14px 34px;
+
     border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--terracota),
+            var(--vino)
+        );
+
+    color: var(--blanco);
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
     cursor: pointer;
-    font-weight: bold;
+
+    box-shadow:
+        0 8px 20px rgba(111, 63, 69, 0.30);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 }
 
 button:hover {
-    background-color: #163a5c;
+    background:
+        linear-gradient(
+            135deg,
+            var(--rosa),
+            var(--terracota)
+        );
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 13px 28px rgba(111, 63, 69, 0.35);
 }
 
-/*FOOTER*/
+button:active {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PIE DE PÁGINA
+   ========================================================= */
 
 footer {
-    background-color: #163a5c;
-    color: #ffffff;
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(209, 132, 118, 0.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            var(--ciruela),
+            var(--vino)
+        );
+
+    color: #EAD7D0;
+
     text-align: center;
-    padding: 20px;
-    margin-top: 30px;
+
+    padding: 32px 20px;
+
+    margin-top: 70px;
+
+    box-shadow:
+        0 -10px 30px rgba(0, 0, 0, 0.20);
 }
 
-/* ==============================
+footer p {
+    font-size: 14px;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
    RESPONSIVE
-   ============================== */
+   ========================================================= */
 
 @media (max-width: 600px) {
 
+    header {
+        padding: 65px 18px 60px;
+    }
+
+    header h1 {
+        font-size: 31px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    nav {
+        padding: 10px 15px;
+    }
+
     nav ul {
         flex-direction: column;
-        align-items: center;
-        gap: 10px;
+
+        gap: 3px;
+    }
+
+    nav a {
+        width: 100%;
+
+        text-align: center;
+
+        padding: 9px 15px;
     }
 
     main {
-        width: 95%;
+        width: 94%;
+
+        margin: 35px auto;
     }
 
-    section {
-        padding: 15px;
+    section,
+    #acerca,
+    #contacto {
+        width: 94%;
+
+        padding: 25px 20px;
+
+        border-radius: 16px;
+    }
+
+    section h2 {
+        font-size: 24px;
+    }
+
+    section p {
+        font-size: 15px;
     }
 
     table {
-         display: block;
-         overflow-x: auto;
-        font-size: 14px;
+        display: block;
+
+        overflow-x: auto;
+
+        font-size: 13px;
     }
 
     th,
     td {
-        padding: 8px;
+        padding: 11px;
+
+        white-space: nowrap;
     }
 
     input,
-    textarea,
+    textarea {
+        width: 100%;
+    }
+
     button {
         width: 100%;
+
+        align-self: stretch;
+    }
+
+    footer {
+        margin-top: 45px;
     }
 }
