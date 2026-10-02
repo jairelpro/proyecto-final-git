@@ -189,9 +189,13 @@ footer {
     }
 
     table {
-         display: block;
-         overflow-x: auto;
-        font-size: 14px;
+    display: block;
+    overflow-x: auto;
+    font-size: 14px;
+}
+
+
+}
     }
 
     th,
